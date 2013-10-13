@@ -2,8 +2,10 @@
 <h1> AngularJS Intro Presentation</h1>
 
 Built using Google IO slides - refactored into AngularJS Intro for What the HTML? Presentation.
-Actual slides are under template.html - Code that matters is inline with the slides
-Not representative of brilliant HTML standards in slides, this functional    
+
+Actual slides are under template.html - Code that matters is inline with the slides.
+
+Not representative of brilliant HTML standards in slides, this functional.
 
 <h1>Google IO 2012/2013 HTML5 Slide Template</h1>
 
