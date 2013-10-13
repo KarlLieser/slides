@@ -1,0 +1,843 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+
+Oct 2013: Refactored By Karl L. into AngularJS Intro for What the HTML? Presentation
+    Not representative of brilliant HTML standards in slides, this functional
+    Code that matters is inline with the slides
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+  
+  <!-- requirejs wasn't playing ball so using direct refs -->
+  <script src="js/angular-talk/jquery-2.0.3.min.js"></script>
+  <script src="js/angular-talk/angular.min.js"></script>
+  <script src="js/angular-talk/angular-components.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/AngularJS-large.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/agile_peterborough.jpeg"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Thanks to David for the invitation</li>
+          <li>Answer questions at the end</li>
+		  <li>Have tried to litter talk with links, will make available</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="aboutMe" hidden>
+    <hgroup>
+      <h2>About me</h2>
+    </hgroup>
+	<article >
+	  
+	  <h3>Code Monkey</h3>
+      <ul class="listSpace">
+		<li>Jack of a few trades, master of...</li>
+        <li>Lincoln University Graduate</li>
+        <li>{ Java - C# } +  &lt; JS - CSS - HTML /&gt;</li>
+      </ul>
+	  
+	  <ul class="listSpace build">
+	    <li>Specialising more in heavy "front end"</li>
+		<li>Not here to patronize, be gentle!</li>
+		<li>Cookies to whoever picks up an accent</li>
+      </ul>
+	  
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>Quick slide about me</li>
+		  <li>As you can see from the droid, I love apple</li>
+		  <li>Some of you probably have jeans older than I am</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="whyAngularJS">
+    <hgroup>
+      <h2>So why AngularJS?</h2>
+    </hgroup>
+	<article >
+	  
+	  <h3>Lots of MV* (Model - View - Whatever) type frameworks about</h3>
+	  <ul class="build">
+		<li>See <a href="http://todomvc.com/">ToDoMVC</a>
+			<ul>
+				<li>Backbone.js</li>
+				<li>AngularJS</li>
+				<li>Ember.js</li>
+				<li>KnockoutJS</li>
+			</ul>
+		</li>
+	  </ul>
+      
+	  <ul class="build">
+		<li>
+			<a href="http://angularjs.org/">AngularJS</a> is...
+			<ul class="build">
+				<li>"HTML enhanced for web apps!"</li>
+				<li>Developed from the guys at Google</li>
+				<li>Key Names: Miško Hevery, Vojta Jína, Igor Minar</li>
+			</ul>
+		</li>
+	  </ul>
+	    
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>Everyone clear on MVC frameworks?</li>
+		  <li>Only started learning about MV* frameworks recently</li>
+		  <li>Stand on the shoulders of giants</li>
+		  <li>Developers behind Angular vetted by Google (More trustworthy?)</li>
+		  <li>Born out of lessons learned from Gmail, Gdocs, G+</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="segue dark quote nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        ...a complete solution, with testing environment and philosophy behind it...
+      </q>
+      <div class="author">
+        Vojta Jína<br/>
+		<a href="http://stackoverflow.com/a/9408089">Source</a>
+      </div>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Backbone.js is very un-opinionated</li>
+		  <li>Angular is opinionated but less boilerplate</li>
+		  <li>Wont have time to cover, but full testing solutions provided</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="trending">
+    <hgroup>
+      <h2>Trending...</h2>
+    </hgroup>
+    <article class="center">
+      <img src="images/angulartrends_2.jpg" alt="Trending">
+    </article>
+	<article >
+	  <ul class="listSpace">
+		<li class="blue">AngularJS (blue)</li>
+		<li class="red">KnockoutJS (red)</li>
+		<li class="yellow">“Single Page Applications” (yellow)</li>
+      </ul>
+	  <footer class="source">source: <a href="http://wintellect.com/blogs/jlikness/10-reasons-web-developers-should-learn-angularjs">10 Reasons Web Developers Should Learn AngularJS</a></footer>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>50% of searches probably done by me in the last 6 weeks!</li>
+		  <li>Losts of momentum, community is active and growing</li>
+		  <li>Lots of content / articles / tutorials online </li>
+		  <li>Google has a habit of dropping products (Wave/Buzz), but we're probably safe</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="outOfTheBox">
+    <hgroup>
+      <h2>Out of the box...</h2>
+    </hgroup>
+	<article class="flexbox vleft" style="margin-top: 15px;">
+	  <ul class="noDots">
+		<li>✓ <a href="http://docs.angularjs.org/guide/dev_guide.templates.databinding">Data binding</a></li>
+		<li>✓ Templating</li>
+		<li>✓ <a href="http://docs.angularjs.org/guide/directive">Extending HTML vocabulary</a></li>
+		<li>✓ <a href="http://www.thinkster.io/pick/Zzuw2QF2u4/angularjs-routeprovider-api">Routing and deep linking</a></li>
+		<li>✓ <a href="http://docs.angularjs.org/guide/di">Dependency injection</a></li>
+		<li>✓ <a href="http://docs.angularjs.org/guide/dev_guide.unit-testing">Unit Testing</a> (<a href="http://karma-runner.github.io/">Karma</a> & <a href="http://pivotal.github.io/jasmine/">Jasmine</a>) / <a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing">E2E Testing</a></li>
+		<li>✓ <a href="http://ngmodules.org/">Third Party component integration</a> - e.g. <a href="http://angular-ui.github.io/">Angular-UI Team</a></li>
+      </ul>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li><a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing">E2E Testing - Angular Scenario Runner</a></li>
+		  <li><a href="https://github.com/angular/protractor">E2E Testing - Protractor</a></li>
+		  <li>Litterally a whole book on angular, just want to cover the key building blocks</li>
+		  <li>Views / Controllers / Directives / Services / Filters</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="dynamicHtml nobackground">
+    <hgroup>
+      <h2>What are we trying to fix?</h2>
+    </hgroup>
+    <article style="margin-top: 20px;">
+	
+	<ul class="build">
+		<li>
+		  <pre class="prettyprint" data-lang="html">
+&lt;p id="greeting">Hello World!&lt;/p>
+<b>&lt!-- HTML is great for declarative, static web pages --></b>
+</pre>
+		</li>
+		<li>
+		  <pre class="prettyprint" data-lang="javascript">
+&lt;script type='text/javascript'&gt;
+<b>// Not so good for dynamic pages</b>
+var isIE = document.attachEvent;
+var addListener = isIE
+  ? function(e, t, fn) {
+    e.attachEvent('on' + t, fn);}
+  : function(e, t, fn) {
+    e.addEventListener(t, fn, false);};
+  addListener(document, 'load', function(){
+    var greeting = document.getElementById('greeting1');
+    if (isIE) {
+      greeting.innerText = 'Hello World!';
+    } else {
+      greeting.textContent = 'Hello World!';
+    }
+  });
+&lt;/script&gt;</pre>
+		</li>
+	</ul>
+	</article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Shamelessly lifted from <a href="http://pub.ricodigo.com/patcito/angularjs-slides/">another talk</a></li>
+		  <li>HTML is great for declatative code for static web pages</li>
+		  <li>HTML is not so good for dynamic pages</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="jquery">
+    <hgroup>
+      <h2>Example: jQuery</h2>
+    </hgroup>
+    <article style="margin-top: 20px;">
+		<pre class="prettyprint" data-lang="javascript">
+&lt;script type='text/javascript'&gt;
+$(function() {
+  <b>var name = $('#name');
+  
+  name.keyup( function() {
+    $('#greeting').html( 'Hello ' + name.val() );
+  });</b>
+});
+&lt;/script&gt;
+</pre>
+	</article>
+	<article>
+		<pre class="prettyprint" data-lang="html">
+&lt;label>Name:&lt;/label>
+<b>&lt;input type="text" id="name">
+&lt;p id="greeting">&lt;/p></b>
+</pre>
+		<script type='text/javascript'>
+			$(function() {
+				var name = $('#name');
+				
+				name.keyup( function() {
+					$('#greeting').html( 'Hello ' + name.val() );
+				});
+			});
+		</script>
+		<div class="basics flexbox vcenter">
+			<label>Name:</label>
+			<input type="text" id="name">
+			<p class="greetingOutput" id="greeting"></p>
+		</div>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Standard jQuery - select DOM and manipulate</li>
+		  <li>Bindings are manual</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="issues">
+    <hgroup>
+      <h2>The issues</h2>
+    </hgroup>
+	<article class="flexbox vleft" style="margin-top: 15px;">
+	 <div>
+	  <ul>
+		<li>Okay for small widgets</li>
+		<li>Imperative, not declarative</li>
+      </ul>
+	  <ul>
+		<li>Larger web applications = spaghetti code</li>
+		<li>Not easily scalable</li>
+		<li>Not easily maintainable</li>
+		<li>Not easily testable</li>
+      </ul>
+	  </div>
+	</article >
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>No good for non-trivial applications like Gmail, Gdocs etc </li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="redVsBlue nobackground">
+    <hgroup>
+      <h2 style="color: #FFF;">Choices</h2>
+    </hgroup>
+	<article class="center">
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>There has got to be a better way without writing the boilerplate ourselves</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="angular" ng-controller="angularDemo">
+    <hgroup>
+      <h2>Example: Basic Angular App</h2>
+    </hgroup>
+	<article>
+		<pre class="prettyprint" data-lang="html">		
+&lt;html <b>ng-app</b>>
+  &lt;head>
+    <b>&lt;script src="lib/angular.min.js">&lt;/script></b>
+  &lt;/head>
+  &lt;body>
+    &lt;label>Name:&lt;/label>
+    &lt;input type="text" <b>ng-model="user.name"</b>>
+    &lt;p><b>Hello {{ userNameStr }}</b>&lt;/p>
+  &lt;/body>
+&lt;/html>
+		</pre>
+		<div class="basics flexbox vcenter">
+		  <div>
+			<label>Name:</label>
+			<input type="text" ng-model="user.name">
+			<p class="greetingOutput">Hello {{ user.name }}</p>
+		  </div>
+		</div>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Magic! Not calling any other files / scripts</li>
+		  <li>Expressions can also be done within element attributes</li>
+		  <li>Expressions can apply logic e.g. { 1 + 2 }</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <!-- Didn't have time for this slide -->
+  <slide class="angular" ng-controller="angularDemo" hidden>
+    <hgroup>
+      <h2>Example: Expressions</h2>
+    </hgroup>
+	<article style="margin-top: 10px;">
+		<pre class="prettyprint" data-lang="html">
+&lt;html ng-app>
+  &lt;head>
+    &lt;script src="lib/angular.min.js">&lt;/script>
+    <b>&lt;style type="text/css">
+      .red { color: red; } .green { color: green; } .yellow { color: yellow; }
+    &lt;/style></b>
+  &lt;/head>
+  &lt;body>
+    &lt;label>Colour:&lt;/label>
+    &lt;input type="text" <b>ng-model="colour"</b>>&lt;/label>  
+    &lt;button <b>ng-click="number = number + 1"</b>>Increment&lt;/button>
+    <b>&lt;p class="{{ colourNameStr }}">Number: {{ numberNameStr }}&lt;/p></b>
+  &lt;/body>
+&lt;/html>
+</pre>
+		<div class="basics flexbox vcenter">
+		  <div>
+			<label>Colour:</label>
+			<input type="text" ng-model="colour" placeholder="green, red, yellow..."><br/>
+			<p style="margin-top: 10px;" class="{{ colour }}"><button ng-click="number = number + 1">Increment</button> <span style="font-weight: bold; font-size: 30pt;">Number: {{ number + 0 }}</span></p>
+		  </div>
+		</div>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Again no external libraries being called</li>
+		  <li>Couple of concepts, ng-click</li>
+		  <li>Expressions can be made inline</li>
+		  <li>Output can be made as HTML and as part of tags e.g. class</li>
+		  <li>Not a great deal of use without controller</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="dataBinding">
+    <hgroup>
+      <h2>Data Binding</h2>
+    </hgroup>
+	<article>
+	  <ul style="margin-top: 75px;">
+		<li>Simple & recognizable</li>
+		<li>HTML <b>is</b> the view / template</li>
+		<li>Two way data binding</li>
+		<li>$scope is the glue between view and model</li>
+		<li>$scope != the model</li>
+      </ul>	  
+	  <div style="float: left; position: relative; left: 55px;">
+		<img src="images/scopeExample_1.jpg">
+	  </div>
+	  <div style="float: right; position: relative; left: -40px;">
+		<img src="images/scopeExample_2.jpg">
+	  </div>
+    </article>
+	<footer class="source">example sources: <a href="http://angular-tips.com/blog/2013/08/why-does-angular-dot-js-rock/">Why Does Angular.js Rock?</a></footer>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Uses dirty checking</li>
+		  <li>Completed through $scope</li>
+		  <li>Can have isolated $scopes, these inherit prototypically</li>
+		  <li>$rootScope is implicitly created from ng-app</li>
+		  <li>$rootScope is a bit like gloabl namespace</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="angular" ng-controller="angularDemo">
+    <hgroup>
+      <h2>Example: Controllers</h2>
+    </hgroup>
+	<article class="smaller" style="margin-top: 10px;">
+		<pre class="prettyprint" data-lang="html">
+&lt;html <b>ng-app="myApp"</b>>
+  &lt;head>
+    &lt;script src="lib/angular.min.js">&lt;/script>
+    <b>&lt;script src="lib/controller.js">&lt;/script></b>
+  &lt;/head>
+  &lt;body <b>ng-controller="greetCtrl"</b>>
+    &lt;label>What's your name?:&lt;/label>
+    &lt;input type="text" <b>ng-model="user.name"</b>>&lt;/label>  
+    &lt;button <b>ng-click="greet()"</b>>Greet me!&lt;/button>
+    &lt;p><b>{{ messageNameStr }}</b>&lt;/p>
+  &lt;/body>
+&lt;/html></pre>
+		<pre class="prettyprint" data-lang="controller.js">
+<b>var app = angular.module('myApp',[]);
+app.controller('greetCtrl', function($scope) {
+    $scope.greet = function() {
+        $scope.message = "Hello, " + $scope.user.name;
+    };
+});</b>
+</pre>
+		<script type='text/javascript'>
+		app.controller('greetCtrl', function($scope) {
+			$scope.greet = function() {
+				$scope.message = "Hello, " + $scope.user.name;
+			};
+		});
+		</script>
+		<div class="basics flexbox vcenter">
+		  <div ng-controller="greetCtrl">
+			<label>What's your name?:</label>
+			<input type="text" ng-model="user.name">
+			<button ng-click="greet()">Greet me!</button>
+			<p class="greetingOutput">{{ message }}</p>
+		  </div>
+		</div>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Controller created as part of a module</li>
+		  <li>Suggested splitting into own file</li>
+		  <li>Golden rule: NO DOM MANIUPLATION</li>
+		  <li>$scope can have both functions and variables</li>
+		  <li>Controller just concentrates on logic, not where used on page</li>
+		  <li>Separation of presentation and logic</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="directives">
+    <hgroup>
+      <h2>Directives</h2>
+    </hgroup>
+	<article style="margin-top: 65px;">
+      <ul class="build noDots">
+	    <li>
+	  	  <pre class="prettyprint" data-lang="jQuery">
+&lt;body>
+  &lt;div id="chart">&lt;/div>
+&lt;/body>
+&lt;!-- 30 Javascript files later... -->
+&lt;script type='text/javascript'&gt;
+  $('#chart').pieChart( { ... } );
+&lt;/script&gt;
+</pre>
+	    </li>
+	    <li>
+		  <p style="text-align: center;">VS</p>
+		  <pre class="prettyprint" data-lang="Angular">
+&lt;body>
+  &lt;pie-chart width="400" height="400" data="myData">&lt;/pie-chart>
+&lt;/body>
+</pre>
+	    </li>
+      </ul>
+	</article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Directives are a way to extend and enhance HTML, teach it new tricks!</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="directives">
+    <hgroup>
+      <h2>Types of Directives</h2>
+    </hgroup>
+	<article>
+	<div style="float: left;">
+		<h3 style="font-weight: bold;">Built-in directives</h3>
+		<ul class="">  
+		  <li>ng-app</li>
+		  <li>ng-controller</li>
+		  <li>ng-model</li>
+		  <li>ng-click</li>
+		  <li>ng-show</li>
+		  <li>ng-hide</li>
+		  <li>ng-src</li>
+		  <li><a href="http://docs.angularjs.org/misc/faq">ng prefix for "angular"</a></li>
+		  <li>...</li>
+		</ul>
+	</div>	
+	<!-- position: relative; top: -375px; left: 75px; -->
+	<div style="float: right;">
+	<pre class="prettyprint" data-lang="ng-show" style="margin-top: 20px; padding-top: 40px;">
+&lt;button ng-click="show = !show">Show&lt;/button>
+&lt;div ng-show="show">
+I am only visible when show is true.
+&lt;/div></pre>
+		<div>
+			<button ng-click="show = !show">Show</button>
+			<div ng-show="show">
+			  I am only visible when show is true.
+			</div>
+		</div>
+	</div>
+	</article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>ng-src used when img url requires an expression not rendered yet</li>
+		  <li>ng-hide does the opposite to ng-show</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="ng-repeat" ng-controller="angularDemo">
+    <hgroup>
+      <h2>ng-repeat</h2>
+    </hgroup>
+	<article class="smaller" style="margin-top: 20px;">
+	<ul class="noDots build">
+		<li>
+			<pre class="prettyprint" data-lang="controllers.js">
+app.controller('JapaneseCarCtrl', function($scope) {
+  <b>$scope.cars = [
+    { name: "Civic", make: "Honda" },
+    { name: "MX5", make: "Mazda" },
+    { name: "Skyline", make: "Nissan" },
+    { name: "MR2", make: "Toyota" }
+  ];</b>
+});</pre>	
+		</li>
+		<li>
+			<pre class="prettyprint" data-lang="html">
+&lt;div <b>ng-controller="JapaneseCarCtrl"</b>>
+  &lt;ul>
+    &lt;li <b>ng-repeat="car in cars"</b>>
+      {{ japCarNameStr }}
+    &lt;/li>
+  &lt;/ul>
+&lt;/div></pre>
+		</li>
+		<li>
+			<script type='text/javascript'>
+			app.controller('JapaneseCarCtrl', function($scope) {
+			  $scope.cars = [
+				  { name: "Civic", make: "Honda" },
+				  { name: "MX5", make: "Mazda" },
+				  { name: "Skyline", make: "Nissan" },
+				  { name: "MR2", make: "Toyota" }
+				];
+			});
+			</script>
+			<div ng-controller="JapaneseCarCtrl">
+				<ul>
+				   <li ng-repeat="car in cars">
+					 {{ car.name }} by {{ car.make}}
+				   </li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+	</article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Important directive, powerful for looping through arrays</li>
+		  <li>efficient and optimized - won't pretend to know the inner workings off hand</li>
+		  <li>Directives use big word : transclusion </li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="directives">
+    <hgroup>
+      <h2>Build your own Directives!</h2>
+    </hgroup>
+	<article style="margin-top: 20px;">
+	<ul class="noDots build">
+	  <li>
+		<pre class="prettyprint" data-lang="Directives">
+<b>A</b>ttribute: <b>&lt;span my-dir="exp">&lt;/span></b>
+<b>E</b>lement: <b>&lt;my-dir>&lt;/my-dir></b>
+<b>C</b>lass: <b>&lt;span class="my-dir: exp;">&lt;/span></b>
+Co<b>M</b>ment: <b>&lt;!-- directive: my-dir exp --></b></pre>
+	  </li>
+	  <li>
+		<pre class="prettyprint" data-lang="Superman">
+&lt;script type='text/javascript'&gt;
+app.directive('superMan', function() {
+  return {
+    <b>restrict: "E", // Denotes the types suggested above
+    replace: true,
+    template: "&lt;div>It's a Bird...It's a Plane...It's Superman!&lt;/div>"</b>
+  }
+});
+&lt;/script&gt;
+<b>&lt;super-man>&lt;/super-man></b>
+</pre>
+	  </li>
+	  <li>
+		<script type='text/javascript'>
+		app.directive('superMan', function() {
+		  return {
+			restrict: "E",
+			replace: true,
+			template: "<div>It's a Bird...It's a Plane...It's Superman!</div>"
+		  }
+		});
+		</script>
+		<super-man></super-man>
+	  </li>
+	</ul>
+	</article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Arguably the most complex part of angular to build yourself</li>
+		  <li>Different ways of instantiating, use of camelCase in script, dash-in-view</li>
+		  <li>DOM manipulation goes here, never the controller</li>
+		  <li>Can be used as a library wrapper e.g. jQuery, but try to do it as angular first</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="services">
+    <hgroup>
+      <h2>Services</h2>
+    </hgroup>
+	<article style="margin-top: 20px;">
+	<p>Default services include; $scope, $http, $timeout, <a href="http://docs.angularjs.org/guide/dev_guide.services.creating_services">see below for custom services:</a></p>
+	<div style="float: right; position: relative; z-index: 1; top: 335px;">
+		<img src="images/servicesExample_1.jpg">
+	 </div>
+	<pre class="prettyprint" data-lang="controllers.js">
+app.controller('MainCtrl', function($scope, UserInformation) {
+  $scope.user = UserInformation;
+});
+
+app.controller('SecondCtrl', function($scope, UserInformation) {
+  $scope.user = UserInformation;
+});
+</pre>
+	<pre class="prettyprint" data-lang="services.js">
+// Other ways to create services include app.service & app.provider
+app.factory('UserInformation', function() {
+  var user = {
+    name: "Angular.js"
+  };
+  return user;
+});
+</pre>
+	</article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Probably run of out time, so will make this brief</li>
+		  <li>Singlton classes that provide functionality</li>
+		  <li>Can be injected into multiple controllers</li>
+		  <li>Lots of built in services, e.g. $scope, $http</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="community">
+    <hgroup>
+      <h2>Leverage the community!</h2>
+    </hgroup>
+	<article>
+		<ul>
+		  <li><a href="http://docs.angularjs.org/tutorial">Angulars own Docs / Tutorials</a></li>
+		  <li><a href="http://egghead.io/">Bite-sized web development training with AngularJS.</a></li>
+		  <li><a href="http://www.yearofmoo.com/">Great blogger on AngularJS</a></li>
+		  <li><a href="http://stackoverflow.com/questions/14994391/how-do-i-think-in-angularjs-if-i-have-a-jquery-background">How do I “think in AngularJS” if I have a jQuery background?</a></li>
+		  <li><a href="https://github.com/angular/angular-seed">Quick-start angular app project structure</a></li>
+		  <li><a href="https://github.com/yeoman/generator-angular">Also has a yeoman generator</a></li>
+		</ul>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+          <li></li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="reading nobackground">
+    <hgroup>
+      <h2>Further reading...</h2>
+    </hgroup>
+	<article>
+		<ul>
+		  <li><a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">Learning JavaScript Design Patterns (Free eBook)</a></li>
+		  <li><a href="http://www.amazon.co.uk/gp/product/0596517742">JavaScript: The Good Parts</a></li>
+		  <li><a href="http://www.amazon.co.uk/AngularJS-Brad-Green/dp/1449344852/">AngularJS</a></li>
+		</ul>
+		<div class="bookTower">
+			<a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/"><img src="images/book_JS_DesignPatterns.gif" alt="JS Book"></a>
+			<a href="http://www.amazon.co.uk/gp/product/0596517742"><img src="images/book_JS_GoodParts.gif" alt="JS Book"></a>
+			<a href="http://www.amazon.co.uk/AngularJS-Brad-Green/dp/1449344852/"><img src="images/book_JS_AngularJS.gif" alt="JS Book"></a>
+		</div>
+		<img class="bookBadParts" src="images/book_JavaScript-the-good-parts.jpg" alt="JS the Bad Parts">
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Not sure on the quality of the AngularJS book, only had a brief look</li>
+		  <li>AngularJS book even has suggestions of wrapping jQuery plugins via directives</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/agile_peterborough.jpeg"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <p>&lt;Questions?&gt;</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/google_developers_logo_white.png"></span>
+	  <div class="centered" style="margin-top:2em">
+	  <section class="white">
+        <p>Built using <a href="https://code.google.com/p/io-2013-slides/">io 2013 slides</a></p>
+      </section>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!--
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+-->
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>

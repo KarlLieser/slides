@@ -1,0 +1,21 @@
+/* Some reusable styling for the slides, some slides also have inline styling applied */
+ul.noDots > li:before { content: ""; }
+.listSpace { padding-top: 45px; }
+.listIndented { 	margin-left: 50px; }
+.bigFont { font-size: 30pt; font-weight: bold; }
+.basics { text-align: center; }
+.basics  div{ margin-top: 10px; }
+.aboutMe { background-color: #FFF; background-image: url("../../images/droid.png"); background-position: calc(100% + 200px) center; background-repeat: no-repeat; }
+.whyAngularJS { background-color: #FFF; background-image: url("../../images/TODOMVC-logo-icon.png"); background-position: calc(80%) calc(50% + 20px); background-repeat: no-repeat; }
+.redVsBlue { background-color: #000; background-image: url("../../images/redvsblue.jpg"); background-position: center center; background-size: 100%; background-repeat: no-repeat; }
+.issues { background-color: #FFF; background-image: url("../../images/jquery_logo.jpg"); background-position: calc(95%) calc(50%); background-repeat: no-repeat; }
+.bookTower { float: right; left: -75px; position: relative; top: -260px; width: 180px; }
+.bookBadParts { float: left; left: 25px; position: relative; }
+.issues li { margin-top: 50px; }
+.outOfTheBox li {	margin-top: 40px; }
+.dataBinding li { margin-top: 40px; }
+.community li { margin-top: 50px; }
+.trending .center{ text-align: center; }
+.thank-you-slide { }
+.thank-you-slide .white { color: #fff !important; }
+.greetingOutput { margin-top: 10px; font-size: 24pt; font-weight: bold; }
