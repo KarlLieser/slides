@@ -1,6 +1,6 @@
 <h1> AngularJS Kiddicare Presentation</h1>
 
-Built using Google IO slides - refactored into AngularJS Intro for What the HTML? Presentation.
+Built using Google IO slides - refactored into AngularJS Kiddicare for What the HTML? Presentation.
 
 Actual slides are under template.html - Code that matters is inline with the slides.
 
