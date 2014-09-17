@@ -1,0 +1,265 @@
+
+ul.noDots > li:before { content: ""; }
+.listSpace { padding-top: 45px; }
+.listIndented { 	margin-left: 50px; }
+
+.bigFont { font-size: 30pt; font-weight: bold; }
+
+.basics {
+	text-align: center;
+}
+
+.basics  div{
+	margin-top: 10px;
+}
+
+#greeting {
+	margin-top: 10px;
+	font-size: 24pt;
+	font-weight: bold;
+}
+
+.aboutMe {
+	background-color: #FFF;
+    background-image: url("../../images/droid.png");
+    background-position: calc(100% + 150px) center;
+    background-repeat: no-repeat;
+}
+
+.whyAngularJS {
+	background-color: #FFF;
+    background-image: url("../../images/TODOMVC-logo-icon.png");
+    background-position: calc(80%) calc(50% + 20px);
+    background-repeat: no-repeat;
+}
+
+.evolvingStory {
+	background-color: #FFF;
+    background-image: url("../../images/Biologi-cal-Evolution.jpg");
+    background-position: calc(50%) calc(50%);
+    background-repeat: no-repeat;
+	background-size: 65%;
+}
+
+.warrantyWarning { 
+	background-color: #FFF;
+    background-image: url("../../images/warning_sign.jpg");
+    background-position: calc(50%) calc(20%);
+    background-repeat: no-repeat;
+}
+
+.cautionTape {
+	display: block;
+	text-indent: -9999px;
+	height: 80px;
+	width: 100%;
+	background-color: #FFF;
+	background-image: url("../../images/caution-tape-top.svg");
+	background-repeat: repeat-x;
+	background-size: 172px 94px;
+	position: absolute;
+	left: 0;
+	margin-top: 30px;
+}
+
+.kiddicareKioskConcept {
+	background-color: #FFF;
+    background-image: url("../../images/kiosk_kiddicare_concept.jpg");
+    background-position: calc(105%) calc(20%);
+	background-repeat: no-repeat;
+	background-size: 90%;
+}
+
+.kioskJourney { 
+	background-color: #FFF;
+    background-image: url("../../images/kiosk_flow_basic.png");
+    background-position: calc(50%) calc(50%);
+	background-repeat: no-repeat;
+	background-size: 80%;
+}
+
+.kioskJourneyImproving {
+	background-color: #FFF;
+    background-image: url("../../images/kiosk_flow_basic_tofix.png");
+    background-position: calc(50%) calc(50%);
+	background-repeat: no-repeat;
+	background-size: 80%;
+}
+
+.kioskArchOld {
+	background-color: #FFF;
+    background-image: url("../../images/kiosk_arch_old.png");
+    background-position: calc(65%) calc(60%);
+	background-repeat: no-repeat;
+	background-size: 80%;
+}
+
+.kioskArchNew {
+	background-color: #FFF;
+    background-image: url("../../images/kiosk_arch_new.png");
+    background-position: calc(8%) calc(60%);
+	background-repeat: no-repeat;
+	background-size: 44%;
+}
+
+.spaghettiCode {
+	background-color: #FFF;
+    background-image: url("../../images/spaghetti_code.jpg");
+    background-position: calc(15%) calc(55%);
+	background-repeat: no-repeat;
+	background-size: 30%;
+}
+
+.contextRecap {
+	background-color: #FFF;
+    background-image: url("../../images/context-recap.png");
+    background-position: calc(50%) calc(50%);
+	background-repeat: no-repeat;
+	background-size: 60%;
+}
+
+.projectTimeline {
+	background-color: #FFF;
+    background-image: url("../../images/github_timeline.png");
+    background-position: calc(50%) calc(80%);
+	background-repeat: no-repeat;
+	background-size: 90%;
+}
+
+.liveDemo {
+	background-color: #FFF;
+    background-image: url("../../images/kiosk_homepage.png");
+	background-position: calc(50%) calc(78%);
+	background-repeat: no-repeat;
+	background-size: 70%;
+}
+
+.underTheHood {
+	background-color: #FFF;
+    background-image: url("../../images/project_tree.png");
+	background-position: calc(7%) calc(60%);
+	background-repeat: no-repeat;
+	background-size: 20%;
+}
+
+.basketItemsIssue { 
+	background-color: #FFF;
+    background-image: url("../../images/overloaded_api.jpg");
+	background-position: calc(50%) calc(85%);
+	background-repeat: no-repeat;
+	background-size: 35%;
+}
+
+.karmaCoverage {
+	background-color: #FFF;
+    background-image: url("../../images/karma_coverage_report.png");
+	background-position: calc(50%) calc(70%);
+	background-repeat: no-repeat;
+	background-size: 90%;
+}
+
+.talkPlan ul { font-size: 32pt; }
+.talkPlan li { margin-top: 8%; }
+
+.warrantyWarning p { margin-top: 22%; }
+
+.aboutKiddicare .images { width: 88%; }
+.aboutKiddicare .images img { width: 100%; margin-left: 6%; }
+
+.aboutKiddicareStores .images { }
+.aboutKiddicareStores .images .float { float: left; }
+.aboutKiddicareStores .images .float.left { width: 54%; margin-left: 3%; }
+.aboutKiddicareStores .images .float.right { width: 40%; margin-left: 1%; }
+.aboutKiddicareStores .images img { width: 100%; margin-bottom: 10px; }
+.aboutKiddicareStores .stores-map { border-radius: 12px; }
+
+.collectInStore img{ border-radius: 12px; }
+.collectInStore .images .float img { float: left; }
+.collectInStore .images .float .argos { width: 38%; margin-left: 8%; }
+.collectInStore .images .float .mcd { width: 336px; margin-left: 9%; }
+
+.kiddicareKiosks .kiosk, .kiddicareKiosks .purpose { float: left; }
+.kiddicareKiosks .kiosk { border-radius: 12px; width: 34%; margin-left: 5%; }
+.kiddicareKiosks .purpose  { margin-left: 5%; font-size: 130%; margin-top: 4%; }
+.kiddicareKiosks .web { font-weight: bold; margin-top: 15%; }
+
+.spaghettiCode .issues { margin-left: 48%; margin-top: 12%; }
+
+.projectTimeline .timeline { margin-top: 5%; }
+.projectTimeline .timeline li { margin-top: 7%; }
+
+.kioskArchNew .features { margin-left: 52%; }
+.kioskArchNew .features li { margin-top: 9%; }
+
+.underTheHood .structure { margin-left: 35%; }
+.underTheHood .appTrees { margin-left: 32%; width: 100%; }
+.underTheHood .appTrees .js { float: left; }
+.underTheHood .appTrees .partials { float: left; margin-left: 10%; margin-top: 4%; }
+
+.underTheHood .appTreeJs, .underTheHood .appTreePartials { width: 245px; }
+.videoComparison video { width: 100%; position: relative; top: -25px; }
+
+.appStartup article { margin-left: 0px; margin-top: 15px; }
+
+.backgroundCtrl article, .productHtml article, .keypadDirective article, .basketItemsFix article { margin-top: 25px; }
+
+.keypadBreak article { margin-top: 18%; margin-left: 11%; }
+
+.basketItemsIssue li { margin-top: 5%; }
+
+.tools li { margin-top: 6%; }
+
+.lessons li { margin-top: 4%; }
+
+.redVsBlue {
+	background-color: #000;
+	background-image: url("../../images/redvsblue.jpg");
+    background-position: center center;
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+/*.issues {
+	background-color: #FFF;
+    background-image: url("../../images/jquery_logo.jpg");
+    background-position: calc(95%) calc(50%);
+    background-repeat: no-repeat;
+}*/
+
+.bookTower {
+	float: right;
+    left: -75px;
+    position: relative;
+    top: -260px;
+    width: 180px;
+}
+
+.bookBadParts {
+	float: left;
+    left: 25px;
+    position: relative;
+}
+
+
+
+.issues li { margin-top: 40px; }
+.outOfTheBox li {	margin-top: 40px; }
+.dataBinding li { margin-top: 40px; }
+.community li { margin-top: 50px; }
+
+.trending .center{
+	text-align: center;
+}
+
+
+
+.thank-you-slide {
+
+}
+
+.thank-you-slide .white {
+	color: #fff !important;
+}
+
+
+

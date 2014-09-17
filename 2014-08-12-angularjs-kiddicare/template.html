@@ -1,0 +1,976 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html> <!-- ng-app="myApp" -->
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+  
+  <!-- require sucks so using direct refs -->
+  <script src="js/angular-talk/jquery-2.0.3.min.js"></script>
+  <script src="js/angular-talk/angular.min.js"></script>
+  <script src="js/angular-talk/angular-components.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/AngularJS-large.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/agile_peterborough.jpeg"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+		  <li>Thanks to David for the invitation</li>
+          <li>Answer questions at the end</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="talkPlan">
+    <hgroup>
+      <h2>The Plan</h2>
+    </hgroup>
+	<article>
+		<ul>	
+			<li>Problem Domain</li>
+			<li>Take a look at the app</li>
+			<li>Peek under the hood</li>
+			<li>Profit???</li>
+		</ul>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li></li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="aboutMe">
+    <hgroup>
+      <h2>About me</h2>
+    </hgroup>
+	<article>
+	  
+	  <h3>Code Monkey</h3>
+      <ul class="listSpace">
+		<li>Jack of a few trades, master of...</li>
+        <li>Lincoln University Graduate</li>
+        <li>{ Java - C# } +  &lt; JS - CSS - HTML /&gt;</li>
+      </ul>
+	  
+	  <div class="build">
+		  <ul class="listSpace">
+			<li>Specialising more in heavy "front end"</li>
+			<li>Not here to patronize, be gentle!</li>
+			<li>Cookies to whoever picks up an accent</li>
+		  </ul>
+	  </div>
+	  
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Quick slide about me</li>
+			<li>As you can see from the droid, I love apple</li>
+			<li>Some of you probably have jeans older than I am</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="warrantyWarning">
+    <hgroup>
+      <h2>Disclaimer</h2>
+    </hgroup>
+	<article>
+
+      <p class="auto-fadein">
+THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+	  </p>
+	  
+	  <div class="cautionTape"></div>
+	    
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>I'm not perfect! Neither is the script I write :)</li>
+			<li>Best practices change over short periods</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="contextRecap">
+    <hgroup>
+      <h2></h2>
+    </hgroup>
+	<article>	  
+		<!-- image -->
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="aboutKiddicare">
+    <!-- <hgroup>
+      <h2><img src="images/kiddicare-logo.gif" alt="Kiddicare Logo"></h2>
+    </hgroup> -->
+	<article>
+	  
+	  <div class="images"> 
+		<img src="images/about_kiddicare_top.png" alt="About Kiddicare">
+		<img src="images/about_kiddicare_bottom.png" alt="About Kiddicare">
+	  </div>
+
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li><a href="http://www.kiddicare.com/">Kiddicare</a> is...</li>
+			<li>An award-winning baby website</li>
+			<li>In the news for all the wrong reasons</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="aboutKiddicareStores">
+    <!-- <hgroup>
+      <h2><img src="images/kiddicare-logo.gif" alt="Kiddicare Logo"></h2>
+    </hgroup> -->
+	<article>
+	  
+	  <div class="images">
+		<div class="float left"> 
+			<img src="images/kiddicare-stores.png" class="stores-map" alt="Kiddicare Stores">
+	    </div>
+		<div class="float right"> 
+			<img src="images/store_lakeside_external.jpg" alt="Kiddicare Lakeside External">
+			<img src="images/store_lakeside_internal.jpg" alt="Kiddicare Lakeside Internal"> 
+			<img src="images/store_cribbs_causeway.jpg" alt="Kiddicare Cribbs Causeway External"> 
+		</div>
+	  </div>
+
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Operated in 11 stores across the UK</li>
+			<li>Each store provides collect in store functonality (large items like buggies)</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="collectInStore">
+    <hgroup>
+      <h2>Browse & Order Points</h2>
+    </hgroup>
+	<article>
+	  
+	  <div class="images">
+		<div class="float"> 
+			<img src="images/kiosks_argos.jpg" alt="Argos Kiosks" class="argos">
+			<img src="images/kiosks_mcd.jpg" alt="McD Kiosks" class="mcd">
+	    </div>
+	  </div>
+
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Browse & Order Points - "Kiosks"</li>
+			<li>Already aware of the concept - Similar exmples, Argos & McDonalds</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="kiddicareKioskConcept">
+    <!-- <hgroup>
+      <h2>Design Concept</h2>
+    </hgroup> -->
+	<article>
+	  <!-- concept image here -->
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Custom made design</li>
+			<li>Windows PC with touch screen / Printer / PED</li>
+			<li>Resistive not Capacative screens (some research into touch frameworks)</li>
+			<li>170 odd order points in total across 11 stores</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="kiddicareKiosks">
+    <hgroup>
+      <h2>Browse & Order Points</h2>
+    </hgroup>
+	<article>
+	  
+	  <img src="images/kiosk_kiddicare.jpg" alt="Kiddicare Kiosks" class="kiosk">
+	  
+	  <div class="purpose">
+		  <ul>
+			<li>In-store collection
+				<ul>
+					<li>Back store warehouse</li>
+				</ul>
+			</li>
+			<li>Reduce till queue times</li>
+			<li>Scan & search full range</li>
+			<li>Home delivery options
+				<ul>
+					<li>e.g. Pre-Orders</li>
+				</ul>
+			</li>
+		  </ul>
+		  <ul class="web build">
+			<li>Web based architecture</li>
+		  </ul>
+	  </div>	  
+
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Back Store Warehouse Location</li>
+			<li>Offer web functonality too, search & checkout (direct delivery / preorder items)</li>
+			<li>Important distinction - web based model, not an application on each client</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="kioskJourney">
+    <hgroup>
+      <h2>User Journey</h2>
+    </hgroup>
+	<article>	  
+	<!-- Image -->
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Standard E-Commerce user journey</li>
+			<li>Nothing out the ordinary customer flow</li>
+			<li>Barcode scanning / checkout different</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="kioskArchOld">
+    <hgroup>
+      <h2>Brief Architecture</h2>
+    </hgroup>
+	<article>	  
+	<!-- Image -->
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Seperate physical web pages</li>
+			<li>Number of performance issues in stores</li>
+			<li>Slow, user journey not great</li>
+			<li>Issues lent themselves to a single page app</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="kioskJourneyImproving">
+    <hgroup>
+      <h2>Needed Improving</h2>
+    </hgroup>
+	<article>	  
+	<!-- Image -->
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Limited time and resources to do a full revamp</li>
+			<li>First search and browse, then basket</li>
+			<li>Would return to complete checkout</li>
+			<li>Checkout only carried out once</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="evolvingStory">
+    <hgroup>
+      <h2>Evolving Narrative</h2>
+    </hgroup>
+	<article>
+	  <!-- funny image here -->
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Evolving business story - not pre-defined</li>
+			<li></li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="spaghettiCode">
+    <hgroup>
+      <h2>jQuery to the rescue?</h2>
+    </hgroup>
+	<article>	  
+	
+		<div class="issues">
+		 <ul>
+		  <li>Existing JSON services</li>
+		  <li>Quick prototype built</li>
+		  <li>Mixed business and presentation logic</li>
+		  <li>Not easily scalable</li>
+		  <li>Not easily maintainable</li>
+		  <li>Not easily testable</li>
+		  <!--  -->
+		 </ul>
+		</div>	
+	
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Identified exsisting JSON services</li>
+			<li>Not restful but could be used</li>
+			<li>Needed templates / routing / structure</li>
+			<li>Much faster! ~30kb or less per search</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="kioskArchNew">
+    <hgroup>
+      <h2>AngularJS saves the day!</h2>
+    </hgroup>
+	<article>
+	  <ul class="noDots features">
+		<li>✓ <a href="http://docs.angularjs.org/guide/dev_guide.templates.databinding">Data binding</a></li>
+		<li>✓ Templating</li>
+		<li>✓ <a href="http://docs.angularjs.org/guide/directive">Extending HTML vocabulary</a></li>
+		<li>✓ <a href="http://www.thinkster.io/pick/Zzuw2QF2u4/angularjs-routeprovider-api">Routing and deep linking</a></li>
+		<li>✓ <a href="http://docs.angularjs.org/guide/di">Dependency injection</a></li>
+		<li>✓ <a href="http://docs.angularjs.org/guide/dev_guide.unit-testing">Unit Testing</a> (<a href="http://karma-runner.github.io/">Karma</a> & <a href="http://pivotal.github.io/jasmine/">Jasmine</a>) / <a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing">E2E Testing</a></li>
+		<li>✓ Third Party components - e.g. <a href="http://angular-ui.github.io/">Angular-UI Team</a></li>
+      </ul>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Single Page App</li>
+			<li>AJAX requests for data</li>
+			<li>Checkout remains unchanged</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="projectTimeline">
+    <hgroup>
+      <h2>Project Timeline</h2>
+    </hgroup>
+	<article>	  
+		
+		<div class="timeline">
+		 <ul>
+		  <li>Proposed Summer 2013</li>
+		  <li>Deployed late November 2013</li>
+		  <li>Further improvements February 2014</li>
+		 </ul>
+		</div>	
+		
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>GitHub commits only for redesign account</li>
+			<li>Currently redesigning with RESTful services</li>
+			<li>Learning on the fly</li>
+			<li>Some best practices have changed</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="liveDemo">
+    <hgroup>
+      <h2>Live Demo</h2>
+    </hgroup>
+	<article>
+	  <!-- -->
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Live Demo!</li>
+			<li>Not a huge app but not trivial either</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="videoComparison">
+    <hgroup>
+      <h2>Comparison</h2>
+    </hgroup>
+	<article>
+	  <video height="530" controls>
+		<source src="video/storekiosk_redesign_comparison.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	  </video>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Old and new side by side - same user journey</li>
+			<li>This is out of date, doesn't include new basket</li>
+			<li>Not scientific but illustrates point</li>
+			<li>Related product / search largley overhauled</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="underTheHood">
+    <hgroup>
+      <h2>Under the Hood</h2>
+    </hgroup>
+	<article>
+		<ul class="structure">
+		  <li><a href="https://github.com/angular/angular-seed">angular-seed base</a></li>
+		</ul>
+		<div class="appTrees build">
+			<div class="js">
+				<img src="images/app_tree_js.png" class="appTreeJs" alt="App Tree JS">
+			</div>
+			<div class="partials">  
+				<img src="images/app_tree_partials.png" class="appTreePartials" alt="App Tree Parials">
+			</div>
+		</div>
+		
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Structure of app - <a href="https://code.angularjs.org/1.2.0/">Live with v1.2.0</a></li>
+			<li>Lesson: Suggestion now to use <a href="http://yeoman.io/">Yeoman for new projects</a></li>
+			<li>Lesson: broken files into seperate folder structures where appropriate</li>
+			<li>Could refactor later into individual components</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="appIndex">
+    <hgroup>
+      <h2>Bootstrap - index.html</h2>
+    </hgroup>
+	<article>
+		<pre class="prettyprint" data-lang="html">&lt;!doctype html>
+&lt;html lang="en" <b>ng-app="KIDDI.app"</b>>
+&lt;head>
+  &lt;!-- head tags including title / meta / css -->
+&lt;/head>
+&lt;body <b>touch-stop-selection</b>>
+
+  &lt;div class="container" <b>ng-controller="backgroundCtrl"</b>>
+    &lt;div class="kiddicareCandyBarStripe stripeHeader">&lt;/div>
+    <b>&lt;include-partial-template template-name="header">&lt;/include-partial-template>
+    &lt;div ng-view>&lt;/div></b>
+  &lt;/div>
+	
+  &lt;!-- shed load of script tags -->
+&lt;/body>
+&lt;/html></pre>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Summary of entry point to app</li>
+			<li>Entire app inherits from a global background Ctrl (e.g heart beat monitor)</li>
+			<li>Lesson: ng-view used to re-route</li>
+			<li>Not worth dev overhead for RequireJS / Minification in this use case</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="appStartup">
+    <hgroup>
+      <h2>Startup - app.js</h2>
+    </hgroup>
+	<article>
+<pre class="prettyprint" data-lang="Javascript"><b>angular.module('KIDDI.app'</b>, [ /* dependencies e.g. 'ngLocale' */ ])
+<b>.run</b>([ /*DI*/, function( /*DI*/ ){
+  <b>/* pre-cache templates */</b>
+}])
+<b>.config</b>(['$routeProvider', '$sceProvider', 'AnalyticsProvider', function( $routeProvider, $sceProvider, AnalyticsProvider ) {
+  AnalyticsProvider.setAccount( /* UA-... */ );
+  <b>AnalyticsProvider.trackPages( true );</b>
+  AnalyticsProvider.setDomainName( /* domain */ );
+
+  <b>$routeProvider.when('/home', { 
+    templateUrl: 'partials/home.html', 
+    controller: 'homeCtrl' 
+  });</b>
+  $routeProvider.when('/browse/:attribute', { templateUrl: 'partials/browse.html', controller: 'browseCtrl' });
+  $routeProvider.when('/results', { templateUrl: 'partials/results.html', controller: 'resultsCtrl' });
+  $routeProvider.when('/product/:websphereId', { templateUrl: 'partials/product.html', controller: 'productCtrl' });
+  $routeProvider.when('/basket', { templateUrl: 'partials/basket.html', controller: 'basketCtrl' });
+  $routeProvider.otherwise({redirectTo: '/home'});
+}]);</pre>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Lesson: use .config to setup services, e.g. routes / analytics</li>
+			<li>Lesson: use .run to setup pre-run tasks</li>
+			<li><a href="https://github.com/revolunet/angular-google-analytics">Analytics Plugin</a></li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="backgroundCtrl">
+    <hgroup>
+      <h2>Controller - backgroundCtrl.js</h2>
+    </hgroup>
+	<article>
+		 <ul>
+		  <li>Registers persistent background tasks
+			<ul>
+				<li>Idle timeout popups</li>
+				<li>HeartBeatMonitor</li>
+				<pre class="prettyprint" data-lang="Timeout">heartBeatMonitorInterval = setTimeout(function repeatTimeout() {
+  <b>$scope.$apply(function () { // Using $apply instead of $timeout</b>
+    // Repeat Timeout
+  });
+}, heartBeatMonitorIntervalCheckTimeout );</pre>
+				<li>Broadcast events e.g. Search / Timeout</li>
+				<pre class="prettyprint" data-lang="Broadcast">// On header <b>$scope.$emit( 'searchActive', true );</b>
+<b>$scope.$on( 'searchActive'</b>, function( event, data ) {
+  if( data === true ) {
+    <b>$scope.$broadcast('closeModals', true );</b>
+  }
+});</pre>
+			</ul>
+		  </li>
+		  
+		  
+		 </ul>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Lesson: <a href="http://zachsnow.com/#!/blog/2013/angularjs-headache-hanging-end-end-scenarios/">Issue using global $timeout with unit tests</a></li>
+			<li>Example: <a href="http://stackoverflow.com/questions/14502006/scope-emit-and-on-angularjs">Use broadcast and emit to dispatch events up and down the scope chain</a></li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="productHtml">
+    <hgroup>
+      <h2>Template - product.html</h2>
+    </hgroup>
+	<article>
+		<pre class="prettyprint" data-lang="Product Summary">&lt;div class="<b>name</b>">
+  &lt;span <b>ng-bind-html="product.name|trustedHtml"</b>>&lt;/span>
+&lt;/div>
+&lt;div class="<b>sku</b>">
+  &lt;span>SKU: <b>{{ product.sku }}</b>&lt;/span>
+&lt;/div>
+&lt;div class="feedback" <b>ng-show="product.rating" 
+  hm-touch="modalProductDetails.open('reviews')"</b>>
+  &lt;div class="rating">
+    &lt;img <b>ng-src="{{ product.imageRating }}"</b>>
+  &lt;/div>
+  &lt;div class="<b>reviews</b>">
+    &lt;span>(<b>{{ product.totalReviews | number:0 }}</b>)&lt;/span>
+  &lt;/div>
+&lt;/div>
+&lt;div class="<b>price</b>">
+  &lt;span><b>{{ calculatedPrice | currency: "&pound;" }}</b>&lt;/span>
+&lt;/div></pre>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Templating in this way makes life much easier</li>
+			<li>Example: lots of examples of different directives and filters being used</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="keypadDirective">
+    <hgroup>
+      <h2>Directive - keypad.js</h2>
+    </hgroup>
+	<article>
+		<pre class="prettyprint" data-lang="header.html">&lt;input type="text" class="magnifyingGlass" <b>keypad-search-with-barcode
+ keypad-submit="submitNewSearchPhrase( searchTerm )"
+ keypad-barcode-check="getSearchPhraseBarcode( searchTerm )"
+ keypad-auto-close="closeKeypad"</b>
+ placeholder="Search for..." ></pre>
+ 
+ <pre class="prettyprint" data-lang="keypad.js">angular.module('KIDDI.app.directives.keypad', [])
+  <b>.directive('keypadSearchWithBarcode'</b>, [ '$timeout', function ( $timeout ) {
+  return {
+    restrict: 'A',
+    <b>scope: {
+      keypadAutoClose: '=?',      // Bool: [optional] Set watcher to auto close
+      keypadSubmit: '&',          // Function: when keypad is submitted
+      keypadBarcodeCheck: '&'     // Function: when barcode has been scanned
+    },</b>
+    link: function ( scope, element, attributes ) { ... } // Use jQuery Keypad Plugin 
+  };
+}]);</pre>
+		
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Lesson: Directives can have isolated child scopes, executing functions from calling controller</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="keypadBreak">
+    <hgroup>
+      <h2></h2>
+    </hgroup>
+	<article>	  
+		<img src="images/keypad_cats.gif" class="cats">
+		<img src="images/keyboard_cat.gif" class="cat">
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Short break!</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>Services - services.js</h2>
+    </hgroup>
+	<article>
+	<ul>
+		<li>Useful discussion on services by <a href="https://groups.google.com/forum/#!msg/angular/56sdORWEoqg/VxECXKbn3gsJ">Igor Minar</a></li>
+		<li>Different ways to create services, we used constructor method</li>
+    </ul>
+<pre class="prettyprint" data-lang="services.js">angular.module('KIDDI.app.services', [])
+  .service('Session', [ '$window', KIDDI.Session ])
+  .service('Finance', [ '$window', KIDDI.Finance ])
+  .service('UrlCheck', [ KIDDI.UrlCheck ])
+  .service('CategoryNamesCache', [ KIDDI.CategoryNamesCache ])
+  .service('EndecaResultsCache', [ KIDDI.EndecaResultsCache ])
+  .service('WCSProductStockResultsCache', [ KIDDI.WCSProductStockResultsCache ])
+  .service('WCSProductDetailResultsCache', [ KIDDI.WCSProductDetailResultsCache ])
+  .service('EndecaSearch', [ '$http', '$q', 'Session', 'Finance', 'EndecaResultsCache', 'CategoryNamesCache', KIDDI.EndecaSearchFactory ])
+  .service('WCSSearch', [ '$http', '$q', 'Session', 'WCSProductDetailResultsCache', KIDDI.WebSphereSearchFactory ])
+  .service('Basket', [ '$http', '$q', 'Session', 'WCSSearch', 'EndecaSearch', 'Finance', KIDDI.WSCBasket ])
+  .service('HeartBeatMonitor', [ '$http', '$q', 'Session', KIDDI.HeartBeatMonitor ])
+  .service('CarouselHelper', [ '$filter', KIDDI.CarouselHelper ])
+  .service('ContentSpotHelper', [ '$http', '$templateCache', 'Session', KIDDI.ContentSpotHelper ]);</pre>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Not sure if this approach is right or wrong, but works for us</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>Service - Basket</h2>
+    </hgroup>
+	<article>
+<pre class="prettyprint" data-lang="services.js"><b>.service('Basket'</b>, 
+[ '$http', '$q', 'Session', 'WCSSearch', 'EndecaSearch', 'Finance', <b>KIDDI.WSCBasket</b> ])</pre>
+
+<pre class="prettyprint" data-lang="WSCBasket.js">'use strict';
+var KIDDI = KIDDI || {}; // USE KIDDI NAMESPACE FOR OBJECTS
+KIDDI.WSCBasket = function( $http, $q, session, WCSSearch, EndecaSearch, Finance ) { ... };
+KIDDI.WSCBasket.prototype.getBasket = function() { ... };
+KIDDI.WSCBasket.prototype.<b>addItemToBasket = function ( item, qty, deliveryType )</b> { ... };
+KIDDI.WSCBasket.prototype.updateBasketItem = function ( orderItemId, qty, deliveryType ) { ... };
+KIDDI.WSCBasket.prototype.removeBasketItem = function ( orderItemId ) { ... };
+KIDDI.WSCBasket.prototype.addBasketPromotionCode = function ( promotionCode ) { ... };
+KIDDI.WSCBasket.prototype.removeBasketPromotionCode = function ( promotionCode ) { ... };</pre>
+
+<pre class="prettyprint" data-lang="productCtrl.js">...
+<b>Basket.addItemToBasket( item, qty, deliveryType )</b>.then( function( response ) { ... });</pre>
+
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Basket returns a custom made promise</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>$q - promises</h2>
+    </hgroup>
+	<article>
+<pre class="prettyprint" data-lang="WSCBasket.js">// In a nutshell
+var basketRequest = function( $http, <b>$q</b> ) {
+  var <b>deferred = $q.defer();</b>
+  
+  var doAsyncRequest = function( $http, <b>deferred</b> ) {
+    $http({ ... }).success( function( response ) {
+      <b>// Modify response 
+      deferred.resolve( response );</b>
+    }).error( function( response ) {
+      <b>deferred.reject( response );</b>
+    });
+  };
+  
+  <b>doAsyncRequest( $http, deferred );</b>
+  
+  return <b>deferred.promise;</b>
+};</pre>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>No more anonymous functions!</li>
+			<li>Useful e.g. return AJAX request and do something additional with data before passing back to controller</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="basketItemsIssue">
+    <hgroup>
+      <h2>$q - Basket Items</h2>
+    </hgroup>
+	<article>
+		<ul>
+			<li>Request basket items, then do additional request for each item</li>
+			<li>Returning back the basket before all items had completed caused issues</li>
+			<li>Effectively flooded the API without queuing them correctly</li>
+        </ul>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Anecdotal issue with basket</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="basketItemsFix">
+    <hgroup>
+      <h2>$q.all - Basket Items</h2>
+    </hgroup>
+	<article>
+<pre class="prettyprint" data-lang="Basket.js">KIDDI.Basket.prototype.getOrderItems = function() {
+  var orderItemsDeferred = $q.defer(),
+      orderItems = this.orderItems;
+  <b>// Returns array of promises
+  var performQueuedSearchForBrowseItems( orderItems, $q ) = function() { ... };</b>
+  
+  // Only resolve once all the order item requests have been completed
+  <b>$q.all( performQueuedSearchForBrowseItems( orderItems, $q ) )</b>.then(function() { 
+    // All promises in array resolved
+    orderItemsDeferred.resolve( orderItems );
+
+  }, function() { // If any failed
+    orderItemsDeferred.reject( false );
+
+  });
+		
+  return orderItemsDeferred.promise;		
+};</pre>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Anecdotal issue with basket</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="karmaCoverage">
+    <hgroup>
+      <h2>Testing - Karma & Coverage</h2>
+    </hgroup>
+	<article>
+	
+		<ul>
+			<li>Demo of <a href="https://github.com/karma-runner/">Karma</a></li>
+			<li>Demo of <a href="https://github.com/karma-runner/karma-coverage">Karma Coverage Report</a></li>
+        </ul>
+		
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Due to lack of time and resources, reverted to manual over automated E2E testing</li>
+			<li>Working demo of unit tests and coverage report running</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <slide class="tools">
+    <hgroup>
+      <h2>Tools</h2>
+    </hgroup>
+	<article>
+		<ul>
+			<li><a href="http://www.jetbrains.com/webstorm/">Webstorm JavaScript IDE</a></li>
+			<li><a href="https://github.com">GitHub Repository</a> + <a href="http://www.sourcetreeapp.com/">Source Tree GitHub Client</a></li>
+			<li><a href="http://nodejs.org/">NodeJS</a></li>
+			<li><a href="http://karma-runner.github.io/">Karma Runner</a> + <a href="https://github.com/karma-runner/karma-coverage">Karma Coverage</a></li>
+			<li><a href="https://kanbanery.com/">Kanbanery</a></li>
+			<li><a href="https://jira.atlassian.com/">JIRA</a></li>
+		</ul>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Built outside of main website, then integrated</li>
+			<li>A few atlassian productivity tools</li>
+			<li>Other useful tools to be aware of <a href="http://bower.io/">Bower</a>, <a href="http://gruntjs.com/">Grunt</a> & <a href="http://yeoman.io/">Yeoman</a></li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <!-- Tidy up -->
+  <slide class="lessons">
+    <hgroup>
+      <h2>Lessons</h2>
+    </hgroup>
+	<article>
+		<ul>
+			<li>Structure app with boiler-plate e.g. angular-seed</li>
+			<li>Break components into logical file structures, minify and merge through grunt if required</li>
+			<li>Use ng-animate and CSS to complete transitions</li>
+			<li>Different ways to create services, look into what works for you</li>
+			<li>Use custom $q promises instead of anonymous functions to resolve async responses</li>
+			<li>Use $q.all to resolve multiple promises in a single merged array</li>
+			<li>Unit test with Karma and use Coverage to see any missed objects</li>
+		</ul>
+    </article>
+	<aside class="note">
+      <section>
+        <ul>
+			<li>Probably more of a confirmation than any major lessons learned</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+  
+  <!-- END -->
+  
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/agile_peterborough.jpeg"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <p>&lt;Questions?&gt;</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/google_developers_logo_white.png"></span>
+	  <div class="centered" style="margin-top:2em">
+	  <section class="white">
+        <p>Built using <a href="https://code.google.com/p/io-2013-slides/">io 2013 slides</a></p>
+      </section>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
